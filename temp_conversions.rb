@@ -1,10 +1,18 @@
-def convert(temp)
+def convert(temp,measure)
 return "Temperature must be an integer" unless temp.class == Fixnum
 return "Temperature below absolute zero" if temp < -474
-5*(temp-32)/9
+
+if measure == "F"
+	5*(temp-32)/9
+else if measure == "C"
+	9*(temp-32)/5
+else
+	return "Conversion error"
+end
+end
 end
 
-puts convert(32)
-puts convert(50)
-puts convert("zero")
-puts convert(-500)
+puts convert(32, "C")
+puts convert(50, "F")
+puts convert(15,"C")
+puts convert(-500, "F")
